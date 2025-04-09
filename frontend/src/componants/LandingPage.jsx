@@ -9,13 +9,6 @@ function LandingPage() {
   const navigate = useNavigate()
   
   let isPatient = false;
-
-  // const isAuth = useSelector((state) => {
-  //   return state.users.isAuthenticated;
-  // });
-
-  // const [isLoading, setIsLoading] = useState(true);
-
   return (
     <>
       {/* {!isLoading ? (
@@ -33,7 +26,7 @@ function LandingPage() {
               <Typography
                 sx={{ ...themeTypography.h1, letterSpacing: "0.02em", mb: 1, color: "#471e75" }}
               >
-                UNITY HOSPITAL
+                BookMyDoc
               </Typography>
               <Typography
                 sx={{ ...themeTypography.h3, letterSpacing: "0.05em", mb: 5, fontSize: "24px", color: "#471e75" }}

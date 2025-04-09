@@ -93,8 +93,9 @@ export default function Footer() {
       </MDBContainer>
 
       <div style={{ backgroundColor: 'black', color: "white", padding: "10px", fontSize: "14px" }}>
-        © 2020 Copyright:
-        <span onClick={()=>{ navigate("/adminLogin") }}>AdminVerse</span>
+        © 2025 Copyright:
+        <span>BookMyDoc</span>
+        {/* <span onClick={()=>{ navigate("/adminLogin") }}>AdminVerse</span> */}
       </div>
     </MDBFooter>
   );

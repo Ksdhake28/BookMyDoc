@@ -170,11 +170,7 @@ function Navbar() {
                     textDecoration: "none",
                   }}
                 >
-                  <img
-                    src={Logo}
-                    alt="alt text"
-                    style={{ height: "35px", width: "126px" }}
-                  />
+                  <h1>BookMyDoc</h1>
                 </Typography>
 
                 <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -253,11 +249,12 @@ function Navbar() {
                     textDecoration: "none",
                   }}
                 >
-                  <img
+                  {/* <img
                     src={Logo}
                     alt="alt text"
                     style={{ height: "35px", width: "126px" }}
-                  />
+                  /> */}
+                  <h1>BookMyDoc</h1>
                 </Typography>
                 <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                   {pages.map((page) => (
