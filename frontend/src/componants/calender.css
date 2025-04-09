@@ -1,0 +1,85 @@
+.calendar-container {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.calendar-section {
+    flex: 1;
+    min-width: 320px;
+}
+
+.appointments-section {
+    flex: 2;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    min-height: 500px;
+}
+
+.MuiDateCalendar-root {
+    width: 100% !important;
+    background: white !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.appointment-list {
+    margin-top: 20px;
+}
+
+.appointment-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.appointment-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(71, 30, 117, 0.1);
+}
+
+.appointment-time {
+    color: #471e75;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.appointment-details {
+    color: #666;
+    font-size: 14px;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+}
+
+@media (max-width: 768px) {
+    .calendar-container {
+        flex-direction: column;
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .calendar-section,
+    .appointments-section {
+        width: 100%;
+    }
+}

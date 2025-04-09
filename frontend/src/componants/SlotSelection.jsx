@@ -1,14 +1,19 @@
-import React from 'react'
-// import AppointmentList from './AppointmentList'
-import AvailableSlots from './AvailableSlots'
+import React from 'react';
+import AvailableSlots from './AvailableSlots';
+import Calendar from './Calender.jsx';
+import './slotselection.css';
+
 function SlotSelection() {
   return (
-    <>
-        {/* <AppointmentForm />  */}
-        {console.log("Inside the slot selection")}
+    <div className="slot-selection-container">
+      <div className="calendar-section">
+        <Calendar />
+      </div>
+      <div className="slots-section">
         <AvailableSlots />
-    </>
-  )
+      </div>
+    </div>
+  );
 }
 
 export default SlotSelection;

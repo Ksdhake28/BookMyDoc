@@ -1,0 +1,172 @@
+.search-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.search-header {
+    text-align: center;
+    color: #471e75;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.search-input-container {
+    margin: 20px auto 40px;
+    max-width: 600px;
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-results {
+    margin-top: -20px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #471e75;
+    font-size: 1.1rem;
+}
+
+.highlight {
+    background-color: rgba(71, 30, 117, 0.1);
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: #471e75;
+    font-weight: 500;
+}
+
+.no-results {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin: 30px 0;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #471e75;
+    box-shadow: 0 5px 15px rgba(71, 30, 117, 0.2);
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+.doctor-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.doctor-item {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.doctor-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(71, 30, 117, 0.2);
+    border-color: #471e75;
+}
+
+.doctor-name {
+    font-size: 1.25rem;
+    color: #471e75;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.detail-row {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: #471e75;
+    min-width: 80px;
+}
+
+.doctor-details {
+    padding: 15px 0;
+}
+
+.doctor-name, 
+.doctor-speciality, 
+.doctor-venue, 
+.doctor-email {
+    color: #333;
+    font-size: 1rem;
+}
+
+.doctor-speciality {
+    color: #555;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.doctor-venue {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.doctor-email {
+    color: #471e75;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    word-break: break-all;
+}
+
+.book-appointment-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background: #471e75;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.book-appointment-btn:hover {
+    background: #6a3ba8;
+}
+
+@media (max-width: 768px) {
+    .doctor-list-container {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-container {
+        margin: 20px auto;
+    }
+
+    .search-header {
+        font-size: 2rem;
+    }
+
+    .search-input {
+        padding: 12px 15px;
+    }
+}

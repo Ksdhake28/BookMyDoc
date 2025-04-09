@@ -1,0 +1,115 @@
+.login-wrapper {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.login-form {
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(71, 30, 117, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.doctor-login-title {
+    color: #471e75;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.doctor-login-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.doctor-login-form input:focus {
+    border-color: #471e75;
+    box-shadow: 0 0 0 3px rgba(71, 30, 117, 0.1);
+    outline: none;
+}
+
+.doctor-login-form label {
+    color: #471e75;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.doctor-login-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(45deg, #471e75, #6a3ba8);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+.doctor-login-btn:hover {
+    background: linear-gradient(45deg, #6a3ba8, #471e75);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(71, 30, 117, 0.3);
+}
+
+.doctor-login-btn:active {
+    transform: translateY(0);
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin: -15px 0 15px 5px;
+    font-weight: 500;
+}
+
+.doctor-forgot-password {
+    text-align: right;
+    margin-top: -15px;
+    margin-bottom: 20px;
+}
+
+.doctor-forgot-password a {
+    color: #471e75;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.doctor-forgot-password a:hover {
+    color: #6a3ba8;
+    text-decoration: underline;
+}
+
+.vortex-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+}
+
+@media screen and (max-width: 480px) {
+    .doctor-login-form {
+        padding: 25px;
+    }
+
+    .doctor-login-title {
+        font-size: 1.75rem;
+    }
+}

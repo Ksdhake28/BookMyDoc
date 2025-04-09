@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import DoctorList from "./DoctorList";
 import axios from "axios";
+import "./search.css";
+
 const Search = () => {
     const [doctors, setDoctors] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
@@ -36,14 +38,26 @@ const Search = () => {
 
 
   return (
-    <div>
-      <h1>Doctor Directory</h1>
-      <input
-        type="text"
-        placeholder="Search by name, location, or specialty"
-        value={searchQuery}
-        onChange={(e) => handleSearch(e.target.value)}
-      />
+    <div className="search-container">
+      <h1 className="search-header">Doctor Directory</h1>
+      <div className="search-input-container">
+        <input
+            className="search-input"
+            type="text"
+            placeholder="Search by name, location, or specialty"
+            value={searchQuery}
+            onChange={(e) => handleSearch(e.target.value)}
+        />
+      </div>
+      {searchQuery && (
+          <div className="search-results">
+              {filteredDoctors.length > 0 ? (
+                  <p>Found <span className="highlight">{filteredDoctors.length}</span> doctors matching "<span className="highlight">{searchQuery}</span>"</p>
+              ) : (
+                  <p className="no-results">No doctors found matching "{searchQuery}"</p>
+              )}
+          </div>
+      )}
       <DoctorList doctors={filteredDoctors} />
     </div>
   );

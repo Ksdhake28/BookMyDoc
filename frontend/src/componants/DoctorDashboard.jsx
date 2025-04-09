@@ -1,22 +1,36 @@
-import React from 'react'
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MDBInput, MDBBtn } from "mdb-react-ui-kit";
+import { MDBBtn } from "mdb-react-ui-kit";
 import DoctorProfilePage from './DoctorProfilePage';
-import "./dashboard.css"
+import "./doctordashboard.css";
 
-function AdminDashboard() {
+function DoctorDashboard() {
+    const navigate = useNavigate();
 
-    const navigate = useNavigate()
-
-  return (
-    <div>
-        <div className='dashboard-navigation'>
-          <MDBBtn onClick={()=>{ navigate("/calendar") }} style={{background: "#471e75", margin:0, fontWeight: 600}} block>Calendar</MDBBtn>
-          <MDBBtn onClick={()=>{ navigate("/") }} style={{background: "#471e75", margin: 0, fontWeight: 600}} block>Home</MDBBtn>
-      </div>
-      <DoctorProfilePage/>
-    </div>
-  )
+    return (
+        <div className="dashboard-container">
+            <div className="dashboard-header">
+                <div className="nav-buttons">
+                    <MDBBtn 
+                        onClick={() => navigate("/")} 
+                        className="nav-btn"
+                    >
+                        Home
+                    </MDBBtn>
+                    <MDBBtn 
+                        onClick={() => navigate("/calendar")} 
+                        className="nav-btn"
+                    >
+                        Calendar
+                    </MDBBtn>
+                </div>
+            </div>
+            
+            <div className="dashboard-content">
+                <DoctorProfilePage />
+            </div>
+        </div>
+    );
 }
 
-export default AdminDashboard;
+export default DoctorDashboard;

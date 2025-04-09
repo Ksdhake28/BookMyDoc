@@ -13,16 +13,33 @@ const DoctorList = (props) => {
     }
 
     return (
-      <div>
-        {doctors.map((doctor, index) => (
-          <div key={index} onClick={() => {handleOnClick(doctor)}} style={{margin: '30px'}}>
-            <h3>Name : {doctor.name}</h3>
-            <span>Location: {doctor.venue}</span>
-            <span>Specialty: {doctor.speciality}</span>
-            <span>Email: {doctor.email}</span>
-          </div>
-        ))}
-      </div>
+        <div className="doctor-list-container">
+            {doctors.map((doctor) => (
+                <div key={doctor._id} className="doctor-item">
+                    <div className="doctor-details">
+                        <div className="detail-row">
+                            <span className="detail-label">Name:</span>
+                            <span className="doctor-name">{doctor.name}</span>
+                        </div>
+                        <div className="detail-row">
+                            <span className="detail-label">Speciality:</span>
+                            <span className="doctor-speciality">{doctor.speciality}</span>
+                        </div>
+                        <div className="detail-row">
+                            <span className="detail-label">Venue:</span>
+                            <span className="doctor-venue">{doctor.venue}</span>
+                        </div>
+                        <div className="detail-row">
+                            <span className="detail-label">Email:</span>
+                            <span className="doctor-email">{doctor.email}</span>
+                        </div>
+                    </div>
+                    <button className="book-appointment-btn" onClick={() => handleOnClick(doctor)}>
+                        Book Appointment
+                    </button>
+                </div>
+            ))}
+        </div>
     );
 };
 
