@@ -41,7 +41,7 @@ function ChooseSlots() {
 
             try {
                 await axios.post(
-                    "${process.env.REACT_APP_BASE_URL}/appointment/create",
+                    `${process.env.REACT_APP_BASE_URL}/appointment/create`,
                     dataToSend
                 );
                 alert("Your appointment is booked successfully");
@@ -65,7 +65,7 @@ function ChooseSlots() {
         const fetchData = async () => {
             await axios
                 .post(
-                    "${process.env.REACT_APP_BASE_URL}/appointment/list",
+                    `${process.env.REACT_APP_BASE_URL}/appointment/list`,
                     dataToSend
                 )
                 .then((response) => {

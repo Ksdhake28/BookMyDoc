@@ -24,10 +24,6 @@ const middlewares  = require('./middlewares/index')
 const PORT = process.env.PORT || 5000
 
 
-
-
-
-
 //middlewares
 
 // app.use(express.static('./public'))
@@ -44,19 +40,12 @@ app.use('/patient', routes.patient)
 app.use('/appointment', routes.appointment)
 // app.use('/admin', routes.admin)
 
-
-
     //temp
       app.get('/', (req,res)=>{
 
           res.send("<h1>Appointment-Scheduling-System</h1>")
 
       })
-
-
-
-
-//errors
 
 app.use(middlewares.notFound)
 app.use(middlewares.errorHandler)
@@ -70,8 +59,9 @@ const start = async () => {
   try {
 
     await connectDB(process.env.MONGODB_URI);
+    console.log('Connected to MongoDB successfully');
     
-    app.listen(PORT, () => console.log(`Server is running at http://127.0.0.1:${PORT}`) )
+    app.listen(PORT, () => console.log(`Server is running at localhost:${PORT}`))
 
   } catch (error) {
 

@@ -142,7 +142,7 @@ export default function PatientRegistration() {
 
                     await axios
                         .post(
-                            "${process.env.REACT_APP_BASE_URL}/patient/registration",
+                        `${process.env.REACT_APP_BASE_URL}/patient/registration`,
                             dataToSend
                         )
                         .then((response) => {

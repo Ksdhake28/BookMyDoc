@@ -11,7 +11,7 @@ const Search = () => {
     useEffect(() => {
         const fetchData = async () => {
             await axios
-                .get("${process.env.REACT_APP_BASE_URL}/doctor/list")
+                .get(`${process.env.REACT_APP_BASE_URL}/doctor/list`)
                 .then((response) => {
                     console.log(response.data.doctorsList);
                     setDoctors(response.data.doctorsList);

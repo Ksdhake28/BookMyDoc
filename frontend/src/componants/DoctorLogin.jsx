@@ -59,7 +59,7 @@ export default function DoctorLogin() {
         // Send loginData to backend for authentication
 
         await axios
-            .post("${process.env.REACT_APP_BASE_URL}/doctor/login", loginData)
+            .post(`${process.env.REACT_APP_BASE_URL}/doctor/login`, loginData)
             .then((response) => {
                 localStorage.setItem("unity-jwt-doctor", response.data.token);
                 localStorage.setItem(
