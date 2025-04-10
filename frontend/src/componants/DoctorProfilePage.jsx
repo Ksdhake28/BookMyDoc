@@ -32,21 +32,17 @@ export default function DoctorProfilePage() {
   const id = localStorage.getItem("unity-doctor-id")
 
   useEffect(() => {
-    
     const fetchData = async () => {
-
-      const response = await axios.post("http://localhost:5000/appointment/list", {id,type:"doctor"})
-      const responseDoctor = await axios.get(`http://localhost:5000/doctor/${id}`)
-
+      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/appointment/list`, {id,type:"doctor"})
+      const responseDoctor = await axios.get(`${process.env.REACT_APP_BASE_URL}/doctor/${id}`)
+      
       console.log(responseDoctor)
       setAppointmentList(response.data.appointments)
       setDoctor(responseDoctor.data.doctor)
     } 
 
     fetchData()
-
     setIsLoading(false);
-
   }, []);
   
   
