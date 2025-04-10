@@ -26,8 +26,11 @@ const PORT = process.env.PORT || 5000
 
 //middlewares
 
-// app.use(express.static('./public'))
-app.use(cors())
+// Update CORS configuration
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://book-my-doc-alu5.vercel.app'],
+  credentials: true
+}))
 app.use(express.json())
 app.use(cookieParser())
 
@@ -41,11 +44,11 @@ app.use('/appointment', routes.appointment)
 // app.use('/admin', routes.admin)
 
     //temp
-      app.get('/', (req,res)=>{
+app.get('/', (req,res)=>{
 
-          res.send("<h1>Appointment-Scheduling-System</h1>")
+    res.send("<h1>Appointment-Scheduling-System</h1>")
 
-      })
+})
 
 app.use(middlewares.notFound)
 app.use(middlewares.errorHandler)
