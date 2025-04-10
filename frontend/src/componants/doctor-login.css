@@ -13,9 +13,8 @@
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(71, 30, 117, 0.1);
     position: absolute;
-    top: 50%;
+    top: 10%;
     left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .doctor-login-title {
