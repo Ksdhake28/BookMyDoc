@@ -31,7 +31,7 @@ const AvailableSlots = () => {
   useEffect(() => {
 
     const fetchData = async () => {
-      await axios.post("http://127.0.0.1:5000/appointment/list", dataToSend)
+      await axios.post(`${process.env.REACT_APP_BASE_URL}/appointment/list`, dataToSend)
         .then((response) => {
           console.log(response.data.appointments)
           setData(response.data.appointments);

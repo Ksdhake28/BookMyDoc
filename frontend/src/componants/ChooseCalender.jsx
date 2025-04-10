@@ -42,7 +42,7 @@ export default function Calendar(props) {
     // const updatedAppointments = appointments.filter((appointment) => appointment._id !== appointmentId);
     // setAppointments(updatedAppointments);
 
-    await axios.post("http://127.0.0.1:5000/appointment/cancel", {appointmentID})
+    await axios.post(`${process.env.REACT_APP_BASE_URL}/appointment/cancel`, {appointmentID})
     window.location.reload()
   }
 
@@ -72,7 +72,7 @@ export default function Calendar(props) {
       navigate('/')
     }
 
-    axios.post(`http://127.0.0.1:5000/appointment/list`, dataToSend)
+    axios.post(`${process.env.REACT_APP_BASE_URL}/appointment/list`, dataToSend)
       .then((response) => {
         console.log(response)
         setAppointments(response.data.appointments);
