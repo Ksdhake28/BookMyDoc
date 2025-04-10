@@ -3,7 +3,7 @@ import axios from "axios";
 import { MDBInput, MDBBtn } from "mdb-react-ui-kit";
 import { Vortex } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
-
+import './doctor-login.css';
 
 export default function DoctorLogin() {
   const navigate = useNavigate();
@@ -94,49 +94,51 @@ export default function DoctorLogin() {
   };
 
   return (
-    <form className="login-form" onSubmit={handleLogin}>
-      <MDBInput
-        label="Email"
-        type="email"
-        name="email"
-        value={loginData.email}
-        onChange={handleChange}
-        className="mt-4"
-        onFocusCapture={(event) => {unsetErrors(event)}}
-      />
-      {errors.email.state ? (errors.email.errMsg !== '' ? <div className="error-message" >{errors.email.errMsg}</div> : <div className="error-message" >Please provide a valid email</div> )  : null}
-      <MDBInput
-        label="Password"
-        type="password"
-        name="password"
-        value={loginData.password}
-        onChange={handleChange}
-        className="mt-4"
-        onFocusCapture={(event) => {unsetErrors(event)}}
-      />
-      {errors.password.state ? (errors.password.errMsg !== '' ? <div className="error-message" >{errors.password.errMsg}</div> : <div className="error-message" >Please provide the password</div> )  : null}
-      <MDBBtn type="submit" className="mt-4" block >
-      {isLoading ? (
-            <Vortex
-              visible={true}
-              height="30"
-              width="30"
-              ariaLabel="vortex-loading"
-              wrapperStyle={{}}
-              wrapperClass="vortex-wrapper"
-              colors={[
-                "#ed2690",
-                "#000032",
-                "#ed2690",
-                "#000032",
-                "#000032",
-                "#ed2690",
-              ]}
-            />
-          ) : (
-            "Sign in as Doctor"
-          )}
-      </MDBBtn>
-    </form>
+    <div className="login-wrapper">
+      <form className="login-form" onSubmit={handleLogin}>
+        <MDBInput
+          label="Email"
+          type="email"
+          name="email"
+          value={loginData.email}
+          onChange={handleChange}
+          className="mt-4"
+          onFocusCapture={(event) => {unsetErrors(event)}}
+        />
+        {errors.email.state ? (errors.email.errMsg !== '' ? <div className="error-message" >{errors.email.errMsg}</div> : <div className="error-message" >Please provide a valid email</div> )  : null}
+        <MDBInput
+          label="Password"
+          type="password"
+          name="password"
+          value={loginData.password}
+          onChange={handleChange}
+          className="mt-4"
+          onFocusCapture={(event) => {unsetErrors(event)}}
+        />
+        {errors.password.state ? (errors.password.errMsg !== '' ? <div className="error-message" >{errors.password.errMsg}</div> : <div className="error-message" >Please provide the password</div> )  : null}
+        <MDBBtn type="submit" className="mt-4" block >
+        {isLoading ? (
+              <Vortex
+                visible={true}
+                height="30"
+                width="30"
+                ariaLabel="vortex-loading"
+                wrapperStyle={{}}
+                wrapperClass="vortex-wrapper"
+                colors={[
+                  "#ed2690",
+                  "#000032",
+                  "#ed2690",
+                  "#000032",
+                  "#000032",
+                  "#ed2690",
+                ]}
+              />
+            ) : (
+              "Sign in as Doctor"
+            )}
+        </MDBBtn>
+      </form>
+    </div>
   );
 }

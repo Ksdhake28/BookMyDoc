@@ -1,0 +1,105 @@
+.registration-wrapper {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration-form {
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(71, 30, 117, 0.1);
+}
+
+.mt-4 {
+    margin-top: 1.5rem !important;
+}
+
+.form-gender {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    background: white;
+    color: #333;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-gender:focus {
+    border-color: #471e75;
+    box-shadow: 0 0 0 3px rgba(71, 30, 117, 0.1);
+    outline: none;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin: 5px 0 15px 5px;
+    font-weight: 500;
+}
+
+.form-check {
+    margin: 20px 0;
+}
+
+.form-check-inline {
+    margin-right: 20px;
+}
+
+.form-check-input {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.form-check-label {
+    color: #333;
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: #471e75;
+    border-color: #471e75;
+}
+
+button[type="submit"] {
+    background: linear-gradient(45deg, #471e75, #6a3ba8);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(45deg, #6a3ba8, #471e75);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(71, 30, 117, 0.3);
+}
+
+.vortex-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .registration-form {
+        padding: 25px;
+        width: 95%;
+    }
+}

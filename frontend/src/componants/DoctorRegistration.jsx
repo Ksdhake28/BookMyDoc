@@ -3,6 +3,7 @@ import { MDBInput, MDBBtn } from "mdb-react-ui-kit";
 import axios from "axios";
 import { Vortex } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
+import './doctor-registration.css';
 // import { useNavigate } from "react-router-dom";
 
 const DoctorRegistration = () => {
@@ -26,6 +27,7 @@ const DoctorRegistration = () => {
       [name]: value,
     });
   };
+  
 
   const [errors, setErrors] = useState({
     name: { state: false, para: { maxLength: 50, minLength: 1 } },
@@ -179,18 +181,18 @@ const DoctorRegistration = () => {
   }
 
   return (
-    <div className="form-div">
-      <h1>Doctor Registration</h1>
-    <form onSubmit={handleSubmit} className="registration-form">
-      <MDBInput
-        label="Name"
-        type="text"
-        name="name"
-        value={formData.name}
-        onChange={handleChange}
-        className="mt-4" 
-        onFocusCapture={(event) => {unsetErrors(event)}}
-      />
+    <div className="registration-wrapper">
+      <form onSubmit={handleSubmit} className="registration-form">
+        <h1>Doctor Registration</h1>
+        <MDBInput
+          label="Name"
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          className="mt-4" 
+          onFocusCapture={(event) => {unsetErrors(event)}}
+        />
       {errors.name.state ? (
           <div className="error-message" >Please provide Name</div>
         ) : null}
@@ -299,6 +301,6 @@ const DoctorRegistration = () => {
     </form>
     </div>
   );
-};
+}; // Close the component function
 
-export default DoctorRegistration;
+export default DoctorRegistration; // Move export outside the component

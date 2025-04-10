@@ -22,31 +22,26 @@ function ChooseSlots() {
 
   const handleClickEvent = async (e) => {
     let target = e.target.innerText;
-    console.log("targeeeeeeeeeeeeeee",target.split(' ')[0]);
-
-    if(target.split(' ')[0].includes(dataArray)){
+    let selectedTime = target.split(' ')[0];
+    
+    if(dataArray.includes(selectedTime)){
         alert("Selected time slot is not available choose another");
     } else {
         let response = window.prompt("Please give any specific issue if you want and book appointment")
-            let dataToSend = {
-              patient: localStorage.getItem("unity-patient-id"),
-              doctor: localStorage.getItem("unity-doctor-id-click"),
-              slot: `${ dayjs(date).format("DD-MM-YYYY") + " " + target.split(' ')[0]}`,
-              issue: `${response || "Not Provided"}`,
-            };
-
-            console.log(dataToSend)
-            
-            await axios.post('http://127.0.0.1:5000/appointment/create', dataToSend)
-                .then(() => {
-                    alert("Your appointment is booked successfully")
-                    navigate('/')
-                })
-                .catch((err) => {
-                    alert("Time slot is not available");
-                })
-
+        let dataToSend = {
+          patient: localStorage.getItem("unity-patient-id"),
+          doctor: localStorage.getItem("unity-doctor-id-click"),
+          slot: `${dayjs(date).format("DD-MM-YYYY") + " " + selectedTime}`,
+          issue: `${response || "Not Provided"}`,
+        };
         
+        try {
+            await axios.post('http://127.0.0.1:5000/appointment/create', dataToSend);
+            alert("Your appointment is booked successfully");
+            navigate('/');
+        } catch (err) {
+            alert("Time slot is not available");
+        }
     }
   };
 
@@ -112,6 +107,8 @@ function ChooseSlots() {
               }}
               referenceDate={dayjs(date)}
               views={["year", "month", "day"]}
+              disablePast={true}  // Add this line to disable past dates
+              minDate={dayjs()}   // Add this line to set minimum date to today
             />
           </DemoContainer>
         </LocalizationProvider>

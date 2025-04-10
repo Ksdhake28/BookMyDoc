@@ -7,6 +7,7 @@ import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import AppointmentList from "./AppointmentList";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./calender.css";
 
 export default function Calendar(props) {
 
@@ -105,24 +106,27 @@ export default function Calendar(props) {
   }
 
   return (
-    <>
-    {console.log(initialDate)}
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DemoContainer components={["DateCalendar"]}>
-          <DateCalendar
-            onChange={(newDate) => {
-              handleChange(newDate);
-            }}
-            referenceDate={dayjs(initialDate)}
-            views={["year", "month", "day"]}
-          />
-        </DemoContainer>
-      </LocalizationProvider>
-      {console.log("calling")}
-      <AppointmentList data={filteredAppointments} deleteAppointment={deleteAppointment} />
-    </>
-  );
+    <div className="calendar-container">
+        <div className="calendar-section">
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DemoContainer components={["DateCalendar"]}>
+                    <DateCalendar
+                        onChange={(newDate) => {
+                            handleChange(newDate);
+                        }}
+                        referenceDate={dayjs(initialDate)}
+                        views={["year", "month", "day"]}
+                        disablePast={true}  // Add this line to disable past dates
+                        minDate={dayjs()} // Add this line to set minimum date to today
+                    />
+                </DemoContainer>
+            </LocalizationProvider>
+        </div>
+        <div className="appointments-section">
+            <AppointmentList data={filteredAppointments} deleteAppointment={deleteAppointment} />
+        </div>
+    </div>
+);
 }
-
 
   

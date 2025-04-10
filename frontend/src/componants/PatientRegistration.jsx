@@ -3,6 +3,7 @@ import { MDBInput, MDBBtn } from "mdb-react-ui-kit";
 import axios from "axios";
 import { Vortex } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
+import './patient-registration.css';
 
 
 export default function PatientRegistration() {
@@ -185,169 +186,170 @@ export default function PatientRegistration() {
   };
 
   return (
-    <form onSubmit={handleRegister} className="registration-form">
-      {/* Participant registration form fields */}
-      <MDBInput
-        label="Name"
-        type="text"
-        name="name"
-        value={formData.name}
-        onChange={handleChange}
-        className="mt-4"
-        onFocusCapture={(event) => {unsetErrors(event)}}
-      />
-      {errors.name.state ? <div className="error-message" >Please provide Name</div> : null}
-      <MDBInput
-        label="Phone Number"
-        type="text"
-        name="phoneNumber"
-        value={formData.phoneNumber}
-        onChange={handleChange}
-        className="mt-4"
-        onFocusCapture={(event) => {unsetErrors(event)}}
-      />
-        {errors.phoneNumber.state ? <div className="error-message" >Please provide Phone Number</div> : null}
-      <MDBInput
-        label="Email"
-        type="email"
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        className="mt-4"
-        onFocusCapture={(event) => {unsetErrors(event)}}
-      />
-      {errors.email.state ? (
-        errors.email.errMsg !== "" ? (
-          <div className="error-message">{errors.email.errMsg}</div>
-        ) : (
-          <div className="error-message" >Please provide a valid email</div>
-        )
-      ) : null}
-      <MDBInput
-      label="Password"
-      type="password"
-      name="password"
-      value={formData.password}
-      onChange={handleChange}
-      className="mt-4"
-      onFocusCapture={(event) => {unsetErrors(event)}}
-      />
-      {errors.password.state ? <div className="error-message" >Please provide a valid password(Atleat 6 character including[numbers, lower and upper case letters and special characters])</div> : null}
-      
-      <MDBInput
-        label="Confirm Password"
-        type="password"
-        name="confirmPassword"
-        value={formData.confirmPassword}
-        onChange={handleChange}
-        className="mt-4"
-        onFocusCapture={(event) => {unsetErrors(event)}}
-      />
-      {errors.confirmPassword.state ? (
-          <div className="error-message" >Please confirm your password</div>
+    <div className="registration-wrapper">
+      <form onSubmit={handleRegister} className="registration-form">
+        <h1>Patient Registration</h1>
+        <MDBInput
+          label="Name"
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          className="mt-4"
+          onFocusCapture={(event) => {unsetErrors(event)}}
+        />
+        {errors.name.state ? <div className="error-message" >Please provide Name</div> : null}
+        <MDBInput
+          label="Phone Number"
+          type="text"
+          name="phoneNumber"
+          value={formData.phoneNumber}
+          onChange={handleChange}
+          className="mt-4"
+          onFocusCapture={(event) => {unsetErrors(event)}}
+        />
+          {errors.phoneNumber.state ? <div className="error-message" >Please provide Phone Number</div> : null}
+        <MDBInput
+          label="Email"
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          className="mt-4"
+          onFocusCapture={(event) => {unsetErrors(event)}}
+        />
+        {errors.email.state ? (
+          errors.email.errMsg !== "" ? (
+            <div className="error-message">{errors.email.errMsg}</div>
+          ) : (
+            <div className="error-message" >Please provide a valid email</div>
+          )
         ) : null}
-      <MDBInput
-        label="Age"
-        type="number"
-        name="age"
-        value={formData.age}
+        <MDBInput
+        label="Password"
+        type="password"
+        name="password"
+        value={formData.password}
         onChange={handleChange}
         className="mt-4"
         onFocusCapture={(event) => {unsetErrors(event)}}
-      />
-      {errors.age.state ? <div className="error-message" >Please provide Age</div> : null}
-      <MDBInput
-        label="Weight"
-        type="number"
-        name="weight"
-        value={formData.weight}
-        onChange={handleChange}
-        className="mt-4"
-        onFocusCapture={(event) => {unsetErrors(event)}}
-      />
-      {/* {errors.weight.state ? (
-        <div className="error-message" >Please provide your weight</div>
-      ) : null} */}
-      <MDBInput
-        label="Height"
-        type="number"
-        name="height"
-        value={formData.height}
-        onChange={handleChange}
-        className="mt-4"
-        onFocusCapture={(event) => {unsetErrors(event)}}
-      />
-      {/* {errors.height.state ? (
-        <div className="error-message" >Please provide your height</div>
-      ) : null}
-       */}
-      {/* <MDBInput
-        label="Gender"
-        type="text"
-        name="gender"
-        value={formData.gender}
-        onChange={handleChange}
-        className="mt-4"
-      /> */}
-
-      <select
-        name="gender"
-        onChange={handleChange}
-        value={formData.gender}
-        className="mt-4 form-gender"
-        onFocusCapture={(event) => {unsetErrors(event)}}
-        required
-      >
-        <option value="" disabled>
-          Select Gender
-        </option>
-        {genderOptions.map((option) => (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        ))}
-      </select>
-      {errors.gender.state ? <div className="error-message" >Please select your gender</div> : null}
-      <div>
-        <label >Disability:</label>
-      <span className="form-check form-check-inline">
-  <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
-  <label className="form-check-label" htmlFor="inlineRadio1">Yes</label>
-</span>
-
-<span className="form-check form-check-inline">
-  <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" defaultChecked/>
-  <label className="form-check-label" htmlFor="inlineRadio2">No</label>
-</span>
-</div>
-
-      {/* <MDBInput
-        label="Birth Date"
-        type="date"
-        name="birthDate"
-        value={formData.birthDate}
-        onChange={handleChange}
-        className="mt-4"
-        onFocusCapture={(event) => {unsetErrors(event)}}
-      />
-      {errors.birthDate.state ? (
-        <div className="error-message" >Please provide your birth date</div>
-      ) : null}
-      <MDBInput
-        label="Completion Year"
-        type="text"
-        name="completionYear"
-        value={formData.completionYear}
-        onChange={handleChange}
-        className="mt-4"
-        onFocusCapture={(event) => {unsetErrors(event)}}
-      />
-      {errors.completionYear.state ? (
-          <div className="error-message" >Please provide your college completion year</div>
+        />
+        {errors.password.state ? <div className="error-message" >Please provide a valid password(Atleat 6 character including[numbers, lower and upper case letters and special characters])</div> : null}
+        
+        <MDBInput
+          label="Confirm Password"
+          type="password"
+          name="confirmPassword"
+          value={formData.confirmPassword}
+          onChange={handleChange}
+          className="mt-4"
+          onFocusCapture={(event) => {unsetErrors(event)}}
+        />
+        {errors.confirmPassword.state ? (
+              <div className="error-message" >Please confirm your password</div>
+            ) : null}
+        <MDBInput
+          label="Age"
+          type="number"
+          name="age"
+          value={formData.age}
+          onChange={handleChange}
+          className="mt-4"
+          onFocusCapture={(event) => {unsetErrors(event)}}
+        />
+        {errors.age.state ? <div className="error-message" >Please provide Age</div> : null}
+        <MDBInput
+          label="Weight"
+          type="number"
+          name="weight"
+          value={formData.weight}
+          onChange={handleChange}
+          className="mt-4"
+          onFocusCapture={(event) => {unsetErrors(event)}}
+        />
+        {/* {errors.weight.state ? (
+          <div className="error-message" >Please provide your weight</div>
         ) : null} */}
-      
-      <MDBBtn type="submit" className="mt-4" block>
-      {isLoading ? (
+        <MDBInput
+          label="Height"
+          type="number"
+          name="height"
+          value={formData.height}
+          onChange={handleChange}
+          className="mt-4"
+          onFocusCapture={(event) => {unsetErrors(event)}}
+        />
+        {/* {errors.height.state ? (
+          <div className="error-message" >Please provide your height</div>
+        ) : null}
+         */}
+        {/* <MDBInput
+          label="Gender"
+          type="text"
+          name="gender"
+          value={formData.gender}
+          onChange={handleChange}
+          className="mt-4"
+        /> */}
+
+        <select
+          name="gender"
+          onChange={handleChange}
+          value={formData.gender}
+          className="mt-4 form-gender"
+          onFocusCapture={(event) => {unsetErrors(event)}}
+          required
+        >
+          <option value="" disabled>
+            Select Gender
+          </option>
+          {genderOptions.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+        {errors.gender.state ? <div className="error-message" >Please select your gender</div> : null}
+        <div>
+          <label >Disability:</label>
+        <span className="form-check form-check-inline">
+    <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+    <label className="form-check-label" htmlFor="inlineRadio1">Yes</label>
+  </span>
+  
+  <span className="form-check form-check-inline">
+    <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" defaultChecked/>
+    <label className="form-check-label" htmlFor="inlineRadio2">No</label>
+  </span>
+  </div>
+  
+        {/* <MDBInput
+          label="Birth Date"
+          type="date"
+          name="birthDate"
+          value={formData.birthDate}
+          onChange={handleChange}
+          className="mt-4"
+          onFocusCapture={(event) => {unsetErrors(event)}}
+        />
+        {errors.birthDate.state ? (
+          <div className="error-message" >Please provide your birth date</div>
+        ) : null}
+        <MDBInput
+          label="Completion Year"
+          type="text"
+          name="completionYear"
+          value={formData.completionYear}
+          onChange={handleChange}
+          className="mt-4"
+          onFocusCapture={(event) => {unsetErrors(event)}}
+        />
+        {errors.completionYear.state ? (
+              <div className="error-message" >Please provide your college completion year</div>
+            ) : null} */}
+          
+        <MDBBtn type="submit" className="mt-4" block>
+          {isLoading ? (
             <Vortex
               visible={true}
               height="30"
@@ -365,9 +367,11 @@ export default function PatientRegistration() {
               ]}
             />
           ) : (
-            "Sign Up as Participant"
+            "Sign Up as Patient"
           )}
-      </MDBBtn>
-    </form>
-  );
-}
+        </MDBBtn>
+      </form>
+      </div>
+    );
+    
+};
